@@ -79,22 +79,22 @@ function Home() {
     }
   };
 
-  const add = async(e) =>{
-    e.preventDefault();
-    try {
-      setCandidateNames([...candidateNames, candidateNames])
+  // const add = async(e) =>{
+  //   e.preventDefault();
+  //   try {
+  //     setCandidateNames([...candidateNames, candidateNames])
 
-    } catch (error) {
-      alert("Ops, erro no cadastro de pessoa");
-      console.log(error);
-    }
+  //   } catch (error) {
+  //     alert("Ops, erro no cadastro de pessoa");
+  //     console.log(error);
+  //   }
     
     
-  }
-  // useEffect(() => {
-  //   getCandidates();
-  //   console.log(candidateNames)
-  // }, []);
+  // }
+  useEffect(() => {
+    getCandidates();
+    console.log(candidateNames)
+  }, []);
   return (
     <div>
       <h2>Listagem de Candidatos</h2>
@@ -104,7 +104,7 @@ function Home() {
       <form onSubmit={handleRegisterCandidate}>
         <div className="content">
           <h2>Cadastro de Candidatos</h2>
-          <TextField id="outlined-basic" label="Candidate" variant="outlined" value={candidateNames} onChange={(e)=> add(e.target.value)} />
+          <TextField id="outlined-basic" label="Candidate" variant="outlined" value={candidateNames} onChange={(e)=> setCandidateNames(e.target.value)} />
           <br />
           <br />
           <Button variant="contained" type="submit">Cadastrar</Button>
